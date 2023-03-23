@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS frames(
+    id IDENTITY PRIMARY KEY NOT NULL,
+    lat DOUBLE NOT NULL,
+    lon DOUBLE NOT NULL,
+    alt INTEGER NOT NULL,
+    speed INTEGER NOT NULL,
+    track INTEGER NOT NULL,
+    squawk INTEGER NOT NULL,
+    icao VARCHAR(10),
+    callsign VARCHAR(10),
+    time LONG NOT NULL
+);
