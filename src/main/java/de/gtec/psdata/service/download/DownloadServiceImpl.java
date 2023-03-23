@@ -67,4 +67,16 @@ public class DownloadServiceImpl implements DownloadService {
         Iterable<Frame> frames = frameRepo.findAllByLatBetweenAndLonBetween(latTopLeft, latBottomRight, lonTopLeft, lonBottomRight);
         return Iterables.toFrameArray(frames);
     }
+
+    @Override
+    public Frame[] downloadAllByIcao(String icao) {
+        Iterable<Frame> frames = frameRepo.findAllByIcao(icao);
+        return Iterables.toFrameArray(frames);
+    }
+
+    @Override
+    public Frame[] downloadAllByCallsign(String callsign) {
+        Iterable<Frame> frames = frameRepo.findAllByCallsign(callsign);
+        return Iterables.toFrameArray(frames);
+    }
 }

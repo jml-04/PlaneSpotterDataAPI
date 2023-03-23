@@ -22,6 +22,10 @@ public interface DownloadService {
     Frame[] downloadAllByLatBetweenAndLonBetween(float latTopLeft, float latBottomRight,
                                                  float lonTopLeft, float lonBottomRight);
 
+    Frame[] downloadAllByIcao(String icao);
+
+    Frame[] downloadAllByCallsign(String callsign);
+
     default Frame[] downloadAllByArea(Area area) {
         return downloadAllByLatBetweenAndLonBetween(
                 area.getLatTopLeft(), area.getLatBottomRight(),
