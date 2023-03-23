@@ -26,6 +26,10 @@ public interface FrameRepository extends CrudRepository<Frame, Long> {
     Iterable<Frame> findAllByLatBetweenAndLonBetween(double latTopLeft, double latBottomRight,
                                                      double lonTopLeft, double lonBottomRight);
 
+    Iterable<Frame> findAllByIcao(String icao);
+
+    Iterable<Frame> findAllByCallsign(String callsign);
+
     default Iterable<Frame> findAllByArea(Area area) {
         return findAllByLatBetweenAndLonBetween(
                 area.getLatTopLeft(), area.getLatBottomRight(),

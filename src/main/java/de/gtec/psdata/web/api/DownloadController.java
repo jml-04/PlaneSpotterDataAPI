@@ -73,4 +73,20 @@ public class DownloadController {
 
     }
 
+    @GetMapping(path = "/icao/icao={icao}")
+    public ResponseEntity<?> icao(String icao) {
+        Frame[] frames = downloader.downloadAllByIcao(icao);
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(frames);
+    }
+
+    @GetMapping(path = "/callsign/callsign={callsign}")
+    public ResponseEntity<?> callsign(String callsign) {
+        Frame[] frames = downloader.downloadAllByCallsign(callsign);
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(frames);
+    }
+
 }
