@@ -31,6 +31,14 @@ public class DownloadController {
                 .body(frames);
     }
 
+    @GetMapping(path = "/count")
+    public ResponseEntity<?> downloadFrameCount() {
+        long count = downloader.downloadSize();
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(count);
+    }
+
     @GetMapping(path = "/id={id}")
     public ResponseEntity<?> download(@PathVariable int id) {
         Frame frame = downloader.download(id);

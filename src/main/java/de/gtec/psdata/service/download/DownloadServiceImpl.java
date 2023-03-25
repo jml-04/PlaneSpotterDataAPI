@@ -16,6 +16,11 @@ public class DownloadServiceImpl implements DownloadService {
     private FrameRepository frameRepo;
 
     @Override
+    public long downloadSize() {
+        return frameRepo.count();
+    }
+
+    @Override
     public Frame download(long id) {
         return frameRepo.findById(id)
                 .orElse(null);

@@ -5,6 +5,8 @@ import de.gtec.psdata.storage.entity.Frame;
 
 public interface DownloadService {
 
+    long downloadSize();
+
     Frame download(long id);
 
     Frame[] downloadAllByIds(long[] ids);
